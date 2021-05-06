@@ -33,7 +33,7 @@ function createCardObj(points, suit) {
         suit: suit
     }
 
-    let imageURL = "";
+    let imageURL = '';
 
     //points_of_suit.png
     if (points > 1 && points <= 10) {
@@ -63,7 +63,7 @@ function createCardObj(points, suit) {
 }
 
 
-function buildDeck() {
+function createDeck() {
 
     suits.forEach(suit => {
 
@@ -110,7 +110,6 @@ function calculateHand(hand) {
 
 function displayPlayerCards() {
 
-    //[{}]  imageURL  <img src="" ><img src="" ><img src="" ><img src="" >
     let htmlFragment = "";
 
     playerHand.forEach(card => {
@@ -129,7 +128,6 @@ function displayPlayerCards() {
 
 function displayDealerCards() {
 
-    //[{}]  imageURL  <img src="" ><img src="" ><img src="" ><img src="" >
     let htmlFragment = "";
 
     dealerHand.forEach(card => {
@@ -162,11 +160,11 @@ function checkWinner() {
     let playerPoints = calculateHand(playerHand);
 
     if (playerPoints <= 21 && playerPoints > dealerPoints) {
-        messages.innerHTML = "<b>You win</b>"
+        messages.innerHTML = "<h2>You win!</h2>"
 
     }
     else {
-        messages.innerHTML = "<b>Dealer Wins</b>"
+        messages.innerHTML = "<h2>Dealer Wins</h2>"
     }
 
     hitButton.disabled = true;
@@ -177,10 +175,10 @@ dealButton.addEventListener('click', () => {
     cardDeck = [];
     playerHand = [];
     dealerHand = [];
-    buildDeck();
+    createDeck();
     hitButton.disabled = false;
     standButton.disabled = false;
-    messages.innerHTML = "";
+    messages.innerHTML = '';
 
     //pop 2 cards from cardDeck and push to player hand
 
